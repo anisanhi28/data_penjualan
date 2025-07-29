@@ -5,34 +5,37 @@ export default function Dashboard() {
         <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white">
             <DSalesNav />
 
-            <div className="pt-32 px-6 md:px-20 text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Selamat Datang di Sales Dashboard</h1>
-                <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8">
-                    Aplikasi internal untuk mencatat, mengelola, dan memonitor penjualan harian tim sales Anda.
-                </p>
-            </div>
+            <div className="pt-28 pb-8 px-6 max-w-7xl mx-auto">
+                <h1 className="text-3xl font-bold mb-6">Selamat datang👋</h1>
 
-            <section className="mt-24 px-6 md:px-20">
-                <h2 className="text-2xl font-semibold mb-6 text-center">Fitur Utama</h2>
-                <div className="grid md:grid-cols-3 gap-8 text-left">
-                    <div className="bg-white/20 backdrop-blur-md p-6 rounded-xl shadow-md">
-                        <h3 className="text-xl font-bold mb-2">Laporan Harian Sales</h3>
-                        <p>Sales dapat mencatat aktivitas penjualan secara harian dengan mudah dan cepat.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    {/* Penjualan Hari Ini */}
+                    <div className="bg-white shadow-md rounded-2xl p-6">
+                        <h2 className="text-lg font-semibold mb-2 text-green-600">Penjualan Hari Ini</h2>
+                        <p className="text-3xl font-bold text-green-600">Rp 2.300.000</p>
+                        <p className="text-sm text-gray-500 mt-2">Total dari 4 transaksi</p>
                     </div>
-                    <div className="bg-white/20 backdrop-blur-md p-6 rounded-xl shadow-md">
-                        <h3 className="text-xl font-bold mb-2">Pemantauan Supervisor & Manager</h3>
-                        <p>Supervisor dan manajer dapat melihat performa sales secara real-time.</p>
+
+                    {/* Target Bulanan */}
+                    <div className="bg-white shadow-md rounded-2xl p-6">
+                        <h2 className="text-lg font-semibold mb-2 text-blue-600">Target Bulanan</h2>
+                        <p className="text-2xl font-bold text-blue-600">65%</p>
+                        <p className="text-sm text-gray-500 mt-2">Dari target Rp 30.000.000</p>
                     </div>
-                    <div className="bg-white/20 backdrop-blur-md p-6 rounded-xl shadow-md">
-                        <h3 className="text-xl font-bold mb-2">Rekap & Statistik Penjualan</h3>
-                        <p>Admin dapat merekap seluruh data penjualan dan mengunduh laporan dengan mudah.</p>
+
+                    {/* Laporan Belum Diisi */}
+                    <div className="bg-white shadow-md rounded-2xl p-6">
+                        <h2 className="text-lg font-semibold mb-2 text-red-600">Laporan Belum Diisi</h2>
+                        <p className="text-3xl font-bold text-red-600">1 Hari</p>
+                        <p className="text-sm text-gray-500 mt-2">Segera lengkapi laporan</p>
                     </div>
                 </div>
-            </section>
-
-            <footer className="mt-24 py-6 text-center text-sm text-white/80">
-                &copy; {new Date().getFullYear()} Sales Dashboard. Semua Hak Dilindungi.
-            </footer>
+            {/* Laporan Belum Diisi */}
+                <div className="bg-white shadow-md rounded-2xl p-6">
+                    <h2 className="text-lg font-semibold mb-2 text-red-600">Laporan Belum Diisi</h2>
+                    <p className="text-3xl font-bold text-red-600">1 Hari</p>
+                    <p className="text-sm text-gray-500 mt-2">Segera lengkapi laporan</p>
+                </div>
+            </div>
         </div>
-    );
-}
+    )}
