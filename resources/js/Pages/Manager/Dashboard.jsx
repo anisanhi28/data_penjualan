@@ -1,0 +1,1 @@
+resources/js/Pages/Admin/Dashboard.jsx
