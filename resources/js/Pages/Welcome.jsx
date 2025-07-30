@@ -1,9 +1,9 @@
 import LandingNavbar from '@/Components/LandingNavbar';
 
-export default function LandingPage({ auth }) {
+export default function LandingPage() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white">
-            <LandingNavbar auth={auth} />
+            <LandingNavbar />
 
             <div className="pt-32 px-6 md:px-20 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">Selamat Datang di Sales Dashboard</h1>

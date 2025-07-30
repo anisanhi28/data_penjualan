@@ -1,13 +1,13 @@
 import DSalesSidebar from '@/Components/DSalesSidebar';
 import Topbar from '@/Components/Topbar';
 
-export default function Dashboard({auth}) {
+export default function Dashboard() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white flex">
             <DSalesSidebar />
             <div className="flex-1">
                 <div className="sticky top-0 z-30 ml-64">
-                    <Topbar auth={auth} />
+                    <Topbar />
                 </div>
                 <div className="px-10 ml-64">
                     {/* Heading */}
