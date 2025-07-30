@@ -1,4 +1,4 @@
-import DSalesNav from '@/Components/DSalesNav';
+import DSalesNav from '@/Components/DSalesSidebar';
 
 export default function Dashboard() {
     return (
@@ -30,7 +30,7 @@ export default function Dashboard() {
                         <p className="text-sm text-gray-500 mt-2">Segera lengkapi laporan</p>
                     </div>
                 </div>
-            {/* Laporan Belum Diisi */}
+                {/* Laporan Belum Diisi */}
                 <div className="bg-white shadow-md rounded-2xl p-6">
                     <h2 className="text-lg font-semibold mb-2 text-red-600">Laporan Belum Diisi</h2>
                     <p className="text-3xl font-bold text-red-600">1 Hari</p>
@@ -38,4 +38,5 @@ export default function Dashboard() {
                 </div>
             </div>
         </div>
-    )}
+    )
+}
