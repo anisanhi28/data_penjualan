@@ -20,12 +20,12 @@ export default function DAdminSidebar() {
                 <Link href="/admin/dashboard">
                     <ApplicationLogo className="h-10 w-10 text-white" />
                 </Link>
-                <span className="text-white text-xl font-bold">Sales Dashboard</span>
+                <span className="text-white text-xl font-bold">Admin Dashboard</span>
             </div>
 
             <nav className="flex flex-col space-y-2 text-white">
                 <Link
-                    href="/sales/dashboard"
+                    href="/admin/dashboard"
                     className={`flex items-center gap-2 px-3 py-2 rounded transition ${
                         url.startsWith('/admin/dashboard') ? 'bg-white/30 font-semibold' : 'hover:bg-white/20'
                     }`}
