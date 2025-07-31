@@ -1,14 +1,28 @@
-import DAdminSidebar from '@/Components/DAdminSidebar';
-import Topbar from '@/Components/Topbar';
-import { Head } from '@inertiajs/react';
-import DeleteUserForm from './Partials/DeleteUserForm';
-import UpdatePasswordForm from './Partials/UpdatePasswordForm';
-import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
+import DAdminSidebar from "@/Components/DAdminSidebar";
+import DSalesSidebar from "@/Components/DSalesSidebar";
+import Topbar from "@/Components/Topbar";
+import { Head } from "@inertiajs/react";
+import DeleteUserForm from "./Partials/DeleteUserForm";
+import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
+import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
 
-export default function Edit({ auth, mustVerifyEmail, status, user }) {
+export default function Edit({ mustVerifyEmail, status, auth }) {
+    const getSidebarComponent = () => {
+        if (auth.user.role === 'admin') {
+            return <DAdminSidebar />;
+        } else if (auth.user.role === 'manager') {
+            return <DManagerSidebar />;
+        } else if (auth.user.role === 'sales') {
+            return <DSalesSidebar />;
+        }  else if (auth.user.role === 'supervisor') {
+            return <DSuperVisorSidebar />;
+        }
+    };
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white flex">
-            <DAdminSidebar />
+
+            {getSidebarComponent()}
             <div className="flex-1">
                 {/* Topbar */}
                 <div className="sticky top-0 z-30 ml-64">
@@ -22,11 +36,11 @@ export default function Edit({ auth, mustVerifyEmail, status, user }) {
                         <div className="space-y-6">
                             {/* Update Profile */}
                             <div className="bg-white text-black p-4 shadow sm:rounded-lg sm:p-2">
-                                <UpdateProfileInformationForm 
+                                <UpdateProfileInformationForm
                                     mustVerifyEmail={mustVerifyEmail}
                                     status={status}
                                     className="w-full"
-                                    user={user}
+                                    user={auth.user}
                                 />
                             </div>
 

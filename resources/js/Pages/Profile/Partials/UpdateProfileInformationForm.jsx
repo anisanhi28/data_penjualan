@@ -11,6 +11,8 @@ export default function UpdateProfileInformation({
     className = '',
     user
 }) {
+    console.log(user);
+
     const { data, setData, patch, errors, processing, recentlySuccessful } =
         useForm({
             name: user.name,

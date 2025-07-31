@@ -69,6 +69,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 ]);
             })->name('index');
         });
+
+        Route::prefix('categories')->name('categories.')->group(function () {
+            Route::get('/', function () {
+                return Inertia::render('Admin/Categories/Index', [
+                    'auth' => [
+                        'user' => auth()->user(),
+                    ],
+                ]);
+            })->name('index');
+        });
     });
 });
 
