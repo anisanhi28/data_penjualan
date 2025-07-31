@@ -1,10 +1,7 @@
-import { Search, Bell, User } from 'lucide-react';
-import { Link, usePage } from '@inertiajs/react';
+import { Search, Bell, User } from "lucide-react";
+import { Link } from '@inertiajs/react';
 
-export default function Topbar() {
-    const { props } = usePage();
-    const user = props.auth?.user;
-
+export default function Topbar({ auth }) {
     return (
         <div className="sticky top-0 z-30 w-full mb-4">
             <div className="flex justify-between items-center bg-white/10 backdrop-blur-md px-6 py-3 shadow-md">
@@ -23,13 +20,12 @@ export default function Topbar() {
                     <button className="relative p-2 rounded-full bg-white/20 hover:bg-white/30 transition">
                         <Bell className="text-white w-5 h-5" />
                     </button>
-
                     <Link
                         href="/profile"
                         className="flex items-center bg-white/20 px-4 py-2 rounded-full gap-2 hover:bg-white/30 transition cursor-pointer"
                     >
                         <span className="text-sm font-medium text-white">
-                            {user?.nama ?? 'Pengguna'}
+                            {auth?.user?.name ?? "Pengguna"}
                         </span>
                         <User className="text-white w-5 h-5" />
                     </Link>
