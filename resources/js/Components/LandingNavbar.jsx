@@ -3,21 +3,6 @@
 import { Link } from '@inertiajs/react';
 import ApplicationLogo from './ApplicationLogo';
 
-function getDashboardRoute(role) {
-  switch (role) {
-    case 'admin':
-      return route('admin.dashboard.index');
-    case 'manager':
-      return route('manager.dashboard.index');
-    case 'supervisor':
-      return route('supervisor.dashboard.index');
-    case 'sales':
-      return route('sales.dashboard.index');
-    default:
-      return abort(404);
-  }
-}
-
 export default function LandingNavbar({ auth }) {
   return (
     <nav className="w-full px-14 py-4 flex justify-between items-center bg-white/20 backdrop-blur-md shadow-md fixed top-0 z-50">
@@ -32,7 +17,7 @@ export default function LandingNavbar({ auth }) {
         {auth && auth.user ? (
           <>
             <Link
-              href={getDashboardRoute(auth.user.role)}
+              href='/dashboard'
               className="text-white hover:underline"
             >
               Dashboard

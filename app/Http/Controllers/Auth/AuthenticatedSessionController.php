@@ -33,20 +33,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        $user = auth()->user();
-        if ($user->role === 'sales') {
-            $route = 'sales.dashboard.index';
-        }elseif ($user->role === 'supervisor') {
-            $route = 'supervisor.dashboard.index';
-        }elseif ($user->role === 'manager') {
-            $route = 'manager.dashboard.index';
-        }elseif ($user->role === 'admin') {
-            $route = 'admin.dashboard.index';
-        } else {
-            abort(403, 'Unauthorized role.');
-        }
-
-        return redirect()->intended(route($route, absolute: false));
+        return redirect()->intended('dashboard', false);
     }
 
     /**
