@@ -5,6 +5,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 
+// ! DEPRECATED: This layout is no longer used in the application.
 // step 2, tangkap user dari controller atau route tadi
 export default function AuthenticatedLayout({ header, children, user }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
