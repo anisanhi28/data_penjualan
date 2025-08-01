@@ -67,7 +67,7 @@ export default function DAdminSidebar() {
                         {openDropdown && (
                             <div className="ml-5 flex flex-col space-y-1">
                                 <Link
-                                    href="/categories"
+                                    href="/admin/product-management/categories"
                                     className={`flex items-center gap-2 px-3 py-2 rounded transition ${
                                         url.startsWith('/categories')
                                             ? 'bg-white/30 font-semibold'

@@ -1,9 +1,9 @@
 import Main from '@/Layouts/Main';
 
-export default function index() {
+export default function Index({auth}) {
     return (
         <Main auth={auth}>
-            <h1 className="text-3xl font-bold mb-6">Selamat datang Admin 👋</h1>
+            <h1 className="text-3xl font-bold mb-6">Kategori Produk</h1>
             {/* Cards Section */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                 {/* Penjualan Hari Ini */}
@@ -14,6 +14,5 @@ export default function index() {
                 </div>
             </div>
         </Main>
-                    
     );
 }
