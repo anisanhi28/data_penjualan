@@ -25,7 +25,7 @@ export default function UpdateProfileInformation({
     };
 
     return (
-        <section className={`bg-white shadow-md rounded-xl p-6 ${className}`}>
+        <section className={className}>
             <header className="mb-6 border-b pb-4">
                 <h2 className="text-xl font-semibold text-gray-800">
                     Profil Pengguna
