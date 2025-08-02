@@ -57,7 +57,7 @@ class CategoryController extends Controller
             'nama' => $request->nama,
         ]);
 
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil diperbarui.');
+        return redirect()->route('categories.index',[],303)->with('success', 'Kategori berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -65,7 +65,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus.');
+        return redirect()->route('categories.index',[],303)->with('success', 'Kategori berhasil dihapus.');
     }
 
     public function show($id)
