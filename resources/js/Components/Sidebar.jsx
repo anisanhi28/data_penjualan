@@ -7,8 +7,9 @@ import {
   LayoutDashboard,
   Tag,
   LogOut,
+  FileText,
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function DAdminSidebar() {
   const { post } = useForm();
@@ -22,17 +23,24 @@ export default function DAdminSidebar() {
     post(route('logout'));
   };
 
-  // Tentukan judul berdasarkan role
   let dashboardTitle = 'Dashboard';
   if (user.role === 'admin') {
     dashboardTitle = 'Dashboard Admin';
   } else if (user.role === 'manager') {
     dashboardTitle = 'Dashboard Manager';
   } else if (user.role === 'supervisor') {
-    dashboardTittle = 'Dashboard Supervisor';
+    dashboardTitle = 'Dashboard Supervisor';
   } else if (user.role === 'sales') {
     dashboardTitle = 'Dashboard Sales';
   }
+
+  const isManajemenProdukActive = url.startsWith('/categories') || url.startsWith('/produk');
+
+  useEffect(() => {
+    if (isManajemenProdukActive) {
+      setOpenDropdown(true);
+    }
+  }, []);
 
   return (
     <aside className="h-screen w-64 bg-white/20 backdrop-blur-md shadow-md fixed top-0 left-0 z-50 flex flex-col px-6 py-8">
@@ -44,7 +52,6 @@ export default function DAdminSidebar() {
       </div>
 
       <nav className="flex flex-col space-y-2 text-white">
-        {/* Dashboard */}
         <Link
           href="/admin/dashboard"
           className={`flex items-center gap-2 px-3 py-2 rounded transition ${
@@ -57,28 +64,25 @@ export default function DAdminSidebar() {
           Dashboard
         </Link>
 
-        {/* ADMIN: Manajemen Produk */}
         {user.role === 'admin' && (
           <>
             <button
               onClick={() => setOpenDropdown(!openDropdown)}
-              className="flex items-center justify-between px-3 py-2 rounded hover:bg-white/20 transition"
+              className={`flex items-center justify-between px-3 py-2 rounded transition ${
+                isManajemenProdukActive ? 'bg-white/20 font-semibold' : 'hover:bg-white/20'
+              }`}
             >
               <span className="flex items-center gap-2">
                 <Package size={18} />
                 Manajemen Produk
               </span>
-              {openDropdown ? (
-                <ChevronUp size={16} />
-              ) : (
-                <ChevronDown size={16} />
-              )}
+              {openDropdown ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>
 
             {openDropdown && (
               <div className="ml-5 flex flex-col space-y-1">
                 <Link
-                  href="/product-management/categories"
+                  href="/categories"
                   className={`flex items-center gap-2 px-3 py-2 rounded transition ${
                     url.startsWith('/categories')
                       ? 'bg-white/30 font-semibold'
@@ -104,7 +108,6 @@ export default function DAdminSidebar() {
           </>
         )}
 
-        {/* SALES: Laporan Harian */}
         {user.role === 'sales' && (
           <Link
             href="/laporan-harian"
@@ -119,7 +122,6 @@ export default function DAdminSidebar() {
           </Link>
         )}
 
-        {/* Logout */}
         <button
           onClick={handleLogout}
           className="flex items-center gap-2 text-left hover:bg-white/20 rounded px-3 py-2 transition"
