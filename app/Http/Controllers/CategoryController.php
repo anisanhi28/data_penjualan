@@ -14,6 +14,8 @@ class CategoryController extends Controller
         return Inertia::render('Categories/index', [
             'categories' => Category::all(),
             'auth' => ['user' => auth()->user()],
+            'success' => session('success', null),
+            'error' => session('error', null),
         ]);
     }
 

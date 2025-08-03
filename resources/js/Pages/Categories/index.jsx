@@ -1,8 +1,9 @@
 import Main from '@/Layouts/Main';
 import { Link, usePage, router } from '@inertiajs/react';
+import AlertMessage from '@/Components/AlertMessage';
 
-export default function Index({ auth, categories }) {
-  const handleDelete = (id) => {
+export default function Index({ auth, categories, success, error }) {
+  const handleDelete = id => {
     if (confirm('Apakah kamu yakin ingin menghapus kategori ini?')) {
       router.delete(`/categories/${id}`);
     }
@@ -19,6 +20,9 @@ export default function Index({ auth, categories }) {
           + Tambah Kategori
         </Link>
       </div>
+
+      {/* Session Flash Message */}
+      <AlertMessage success={success} error={error} />
 
       {/* Tabel Kategori */}
       <div className="overflow-x-auto bg-white shadow-md rounded-2xl p-6">
@@ -41,7 +45,9 @@ export default function Index({ auth, categories }) {
               categories.map((category, index) => (
                 <tr key={category.id} className="border-b hover:bg-gray-50">
                   <td className="py-2 px-4 text-black text-sm">{index + 1}</td>
-                  <td className="py-2 px-4 text-black text-sm">{category.nama}</td>
+                  <td className="py-2 px-4 text-black text-sm">
+                    {category.nama}
+                  </td>
                   <td className="py-2 px-4 space-x-2">
                     <Link
                       href={`/categories/${category.id}/edit`}
