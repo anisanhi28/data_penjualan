@@ -93,9 +93,9 @@ export default function DAdminSidebar() {
                   Kategori
                 </Link>
                 <Link
-                  href="/produk"
+                  href="/products"
                   className={`flex items-center gap-2 px-3 py-2 rounded transition ${
-                    url.startsWith('/produk')
+                    url.startsWith('/products')
                       ? 'bg-white/30 font-semibold'
                       : 'hover:bg-white/10'
                   }`}

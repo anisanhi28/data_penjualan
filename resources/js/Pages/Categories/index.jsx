@@ -15,7 +15,7 @@ export default function Index({ auth, categories, success, error }) {
         <h1 className="text-3xl font-bold">Kategori Produk</h1>
         <Link
           href="/categories/create"
-          className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg"
+          className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg"
         >
           + Tambah Kategori
         </Link>

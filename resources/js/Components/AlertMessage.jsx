@@ -3,11 +3,11 @@ export default function AlertMessage({ success, error, ...props }) {
     <div {...props}>
       {success && (
         <div
-          className="mb-4 flex items-center gap-2 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded"
+          className="mb-2 flex items-center gap-2 bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded"
           role="alert"
         >
           <svg
-            className="w-5 h-5 text-green-500"
+            className="w-5 h-5 text-blue-500"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
