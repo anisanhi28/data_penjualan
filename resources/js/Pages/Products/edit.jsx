@@ -17,10 +17,8 @@ export default function Edit({ auth, product, categories }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        put(route('products.update', product.id), {
-            forceFormData: true,
-        });
-    };
+        put(`/products/${product.id}`);
+      };
 
     return (
         <Main auth={auth}>

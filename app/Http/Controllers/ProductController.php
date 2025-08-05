@@ -69,8 +69,9 @@ class ProductController extends Controller
     }
 
     // Update data produk
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
+        $product = Product::findOrFail($id);
         $validated = $request->validate([
             'nama_produk' => 'required|string|max:255',
             'kategori_id' => 'required|exists:categories,id',
@@ -87,7 +88,7 @@ class ProductController extends Controller
 
         $product->update($validated);
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui.');
+        return redirect()->route('products.index',[],303)->with('success', 'Produk berhasil diperbarui.');
     }
 
     // Hapus produk
