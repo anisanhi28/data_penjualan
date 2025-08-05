@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function index()
     {
         return Inertia::render('Products/index', [
-            'products' => Product::all(),
+            'products' => Product::with('category')->get(),
             'auth' => ['user' => auth()->user()],
             'success' => session('success', null),
             'error' => session('error', null),
@@ -94,6 +94,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus.');
+        return redirect()->route('products.index',[],303)->with('success', 'Produk berhasil dihapus.');
     }
 }
