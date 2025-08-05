@@ -58,8 +58,9 @@ class ProductController extends Controller
     }
 
     // Tampilkan form untuk edit produk
-    public function edit(Product $product)
+    public function edit($id)
     {
+        $product = Product::findOrFail($id);
         return Inertia::render('Products/edit', [
             'product' => $product,
             'categories' => Category::all(),
@@ -90,8 +91,9 @@ class ProductController extends Controller
     }
 
     // Hapus produk
-    public function destroy(Product $product)
+    public function destroy($id)
     {
+        $product = Product::findOrFail($id);
         $product->delete();
 
         return redirect()->route('products.index',[],303)->with('success', 'Produk berhasil dihapus.');
